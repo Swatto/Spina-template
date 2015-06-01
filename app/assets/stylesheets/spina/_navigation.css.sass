@@ -1,0 +1,158 @@
+// Primary navigation
+
+nav#primary
+  background: $primary-color
+  height: 100%
+  padding-top: 10px
+  position: relative
+  text-align: center
+  width: 80px
+  @include linear-gradient(darken($primary-color, 5), lighten($primary-color, 5))
+
+  @include media($tablet)
+    width: 80px
+
+  ul li a
+    color: #fff
+    display: block
+    font-size: 10px
+    font-weight: 700
+    opacity: .6
+    padding: 20px 0
+    position: relative
+    text-decoration: none
+    text-transform: uppercase
+    width: 100%
+    @include transition(color .15s ease)
+
+    @include media($tablet)
+      padding: 12px 0
+
+  ul li.active a, ul li a:hover
+    opacity: 1
+
+  ul li.bottom a
+    bottom: 0
+    left: 0
+    position: absolute
+
+  ul li a i.icon
+    display: block
+    font-size: 28px
+    margin-bottom: 8px
+    text-transform: none
+
+    @include media($tablet)
+      font-size: 20px
+
+  ul li:first-child a i.icon
+    font-size: 32px
+    margin-bottom: 3px
+
+  ul li a[data-badge]:after
+    background: $danger-color
+    border-radius: 8px
+    color: #fff
+    content: attr(data-badge)
+    display: block
+    font-size: 12px
+    font-weight: bold
+    line-height: 16px
+    min-width: 10px
+    padding: 0 3px
+    position: absolute
+    right: 28px
+    top: 12px
+
+// Secondary navigation
+
+nav#secondary
+  background: #f9f9f9
+  border-right: 1px solid #ccc
+  height: 100%
+  padding: 30px 0
+  width: 300px
+
+  @include media($tablet)
+    left: 80px
+    padding-top: 12px
+    width: 200px
+
+  h1
+    color: #333
+    font-size: 24px
+    font-weight: 300
+    margin-bottom: 36px
+    padding: 0 30px
+
+    @include media($tablet)
+      display: none
+
+  ul li
+    position: relative
+
+  ul li a
+    color: #333
+    display: block
+    font-size: 15px
+    font-weight: 600
+    line-height: 15px
+    padding: 16px 30px 16px 66px
+    text-decoration: none
+    @include transition(all .2s ease)
+
+    @include media($tablet)
+      margin-left: 24px
+      padding-left: 0
+
+    small
+      color: #666
+      display: block
+      font-size: 14px
+      font-weight: normal
+      line-height: 18px
+      margin-top: 2px
+      @include transition(color .15s ease)
+
+      @include media($tablet)
+        display: none
+
+  ul li a:hover
+    background: #f1f1f1
+
+  ul li.active a
+    background: #f1f1f1
+    color: $primary-color
+
+    small, i.icon
+      color: inherit
+
+  ul li a i.icon
+    color: #666
+    display: block
+    float: left
+    font-size: 24px
+    margin-left: -36px
+    text-align: center
+    width: 24px
+    @include transition(color .15s ease)
+
+    @include media($tablet)
+      display: none
+
+  ul li.active
+    &:before
+      content: ""
+      display: block
+      position: absolute
+      right: -12px
+      top: 33%
+      @include triangle(23px, #ccc, right)
+
+    &:after
+      content: ""
+      display: block
+      position: absolute
+      right: -11px
+      top: 33%
+      @include triangle(22px, #f1f1f1, right)
