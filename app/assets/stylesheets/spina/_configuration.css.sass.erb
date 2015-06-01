@@ -1,0 +1,28 @@
+<%
+	@theme = ::Spina.themes.first
+	def customColor(name, fallback)
+		if @theme.config.backendColors && @theme.config.backendColors[name]
+			@theme.config.backendColors[name]
+		else
+			fallback
+		end
+	end
+%>
+
+
+$primary-color: <%= customColor(:primary, "#6865b4") %>
+$success-color: <%= customColor(:success, "#80b867") %>
+$danger-color: <%= customColor(:danger, "#da3939") %>
+$info-color: <%= customColor(:info, "#17577c") %>
+$error-color: <%= customColor(:error, "#6a1515") %>
+$alert-color: <%= customColor(:alert, "orange") %>
+
+$asset-pipeline: true
+$font-family: "Proxima Nova", $helvetica
+$font-family-serif: "Skolar", $georgia
+$icon-font: $font-family
+$gutter: 5em
+
+$desktop: min-width 768px 8
+$tablet: max-width 768px 8
+$mobile: max-width 480px 4
